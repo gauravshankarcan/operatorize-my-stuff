@@ -16,7 +16,7 @@
         apiVersion: networking.k8s.io/v1
         kind: NetworkPolicy
         metadata:
-          name: allow ingress from all namespaces under umbrella tenant
+          name: allow-ingress-from-all-namespaces-under-umbrella-tenant
           namespace: "{{ ansible_operator_meta.name }}"
         spec:
           podSelector: null
@@ -24,4 +24,4 @@
               - from:
                   - namespaceSelector:
                       matchLabels:
-                      tenant: umbrella
+                        tenant: umbrella
