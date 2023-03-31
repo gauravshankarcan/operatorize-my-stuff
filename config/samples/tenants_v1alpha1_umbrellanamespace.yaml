@@ -1,0 +1,12 @@
+apiVersion: tenants.mytenant.com/v1alpha1
+kind: UmbrellaNamespace
+metadata:
+  labels:
+    app.kubernetes.io/name: umbrellanamespace
+    app.kubernetes.io/instance: umbrellanamespace-sample
+    app.kubernetes.io/part-of: operatorize-my-stuff
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operatorize-my-stuff
+  name: umbrellanamespace-sample
+spec:
+  # TODO(user): Add fields here

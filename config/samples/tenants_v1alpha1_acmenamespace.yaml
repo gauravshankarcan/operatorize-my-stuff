@@ -1,0 +1,12 @@
+apiVersion: tenants.mytenant.com/v1alpha1
+kind: AcmeNamespace
+metadata:
+  labels:
+    app.kubernetes.io/name: acmenamespace
+    app.kubernetes.io/instance: acmenamespace-sample
+    app.kubernetes.io/part-of: operatorize-my-stuff
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operatorize-my-stuff
+  name: acmenamespace-sample
+spec:
+  # TODO(user): Add fields here

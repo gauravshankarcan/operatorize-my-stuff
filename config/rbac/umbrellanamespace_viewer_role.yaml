@@ -1,0 +1,27 @@
+# permissions for end users to view umbrellanamespaces.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: umbrellanamespace-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operatorize-my-stuff
+    app.kubernetes.io/part-of: operatorize-my-stuff
+    app.kubernetes.io/managed-by: kustomize
+  name: umbrellanamespace-viewer-role
+rules:
+- apiGroups:
+  - tenants.mytenant.com
+  resources:
+  - umbrellanamespaces
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - tenants.mytenant.com
+  resources:
+  - umbrellanamespaces/status
+  verbs:
+  - get

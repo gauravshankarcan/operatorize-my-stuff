@@ -1,0 +1,11 @@
+---
+# Use the 'create api' subcommand to add watches to this file.
+- version: v1alpha1
+  group: tenants.mytenant.com
+  kind: AcmeNamespace
+  role: acmenamespace
+- version: v1alpha1
+  group: tenants.mytenant.com
+  kind: UmbrellaNamespace
+  role: umbrellanamespace
+#+kubebuilder:scaffold:watch

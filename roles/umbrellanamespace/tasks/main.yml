@@ -1,0 +1,27 @@
+---
+- name: create namespace
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: "{{ ansible_operator_meta.name }}"
+        labels:
+          tenant: umbrella
+          
+          
+- name: create default network policy to allow networking between namespaces owned by tenant umbrella.  
+  kubernetes.core.k8s:
+    definition:
+        apiVersion: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+          name: allow ingress from all namespaces under umbrella tenant
+          namespace: "{{ ansible_operator_meta.name }}"
+        spec:
+          podSelector: null
+          ingress:
+              - from:
+                  - namespaceSelector:
+                      matchLabels:
+                      tenant: umbrella

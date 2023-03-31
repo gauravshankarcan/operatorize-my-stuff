@@ -1,0 +1,31 @@
+# permissions for end users to edit umbrellanamespaces.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: umbrellanamespace-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operatorize-my-stuff
+    app.kubernetes.io/part-of: operatorize-my-stuff
+    app.kubernetes.io/managed-by: kustomize
+  name: umbrellanamespace-editor-role
+rules:
+- apiGroups:
+  - tenants.mytenant.com
+  resources:
+  - umbrellanamespaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tenants.mytenant.com
+  resources:
+  - umbrellanamespaces/status
+  verbs:
+  - get
